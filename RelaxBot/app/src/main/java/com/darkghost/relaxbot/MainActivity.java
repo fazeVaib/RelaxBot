@@ -2,8 +2,12 @@ package com.darkghost.relaxbot;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ListView;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.scaledrone.lib.Listener;
 import com.scaledrone.lib.Message;
 import com.scaledrone.lib.Room;
@@ -18,6 +22,8 @@ public class MainActivity extends AppCompatActivity implements RoomListener {
     private String roomName = "relaxbot1";
     private EditText editText;
     private Scaledrone scaledrone;
+    private MessageAdapter messageAdapter;
+    private ListView messageView;
 
 
     @Override
@@ -25,6 +31,10 @@ public class MainActivity extends AppCompatActivity implements RoomListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         editText = (EditText)findViewById(R.id.editText);
+
+        messageAdapter = new MessageAdapter(this);
+        messageView = (ListView) findViewById(R.id.message_view);
+        messageView.setAdapter(messageAdapter);
 
         MemberData data = new MemberData(getRandomName(), getRandomColor());
         scaledrone = new Scaledrone(channelID, data);
@@ -63,8 +73,22 @@ public class MainActivity extends AppCompatActivity implements RoomListener {
     }
 
     @Override
-    public void onMessage(Room room, Message message) {
-        // TODO
+    public void onMessage(Room room, Message receivedMessage) {
+        final ObjectMapper mapper = new ObjectMapper();
+        try{
+            final MemberData data = mapper.treeToValue(receivedMessage.getMember().getClientData(), MemberData.class);
+            boolean belongsToCurrUser = receivedMessage.getClientID().equals(scaledrone.getClientID());
+            final com.darkghost.relaxbot.Message message = new com.darkghost.relaxbot.Message(receivedMessage.getData().asText(), data, belongsToCurrUser);
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    messageAdapter.add(message);
+                    messageView.setSelection(messageView.getCount() - 1);
+                }
+            });
+        } catch (JsonProcessingException e){
+            e.printStackTrace();
+        }
     }
 
     public String getRandomName(){
@@ -84,5 +108,13 @@ public class MainActivity extends AppCompatActivity implements RoomListener {
             sb.append(Integer.toHexString(r.nextInt()));
         }
         return sb.toString().substring(0, 7);
+    }
+
+    public void sendMessage(View view){
+        String message = editText.getText().toString();
+        if(message.length() > 0){
+            scaledrone.publish(roomName, message);
+            editText.getText().clear();
+        }
     }
 }
