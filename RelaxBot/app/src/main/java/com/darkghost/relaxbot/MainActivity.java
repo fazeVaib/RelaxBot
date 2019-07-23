@@ -19,7 +19,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity implements RoomListener {
 
     private String channelID = "bzhFcsfFsdQYw7Ue";
-    private String roomName = "relaxbot1";
+    private String roomName = "observable-room";
     private EditText editText;
     private Scaledrone scaledrone;
     private MessageAdapter messageAdapter;
@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements RoomListener {
     @Override
     public void onMessage(Room room, Message receivedMessage) {
         final ObjectMapper mapper = new ObjectMapper();
+        System.out.println("Message incoming lol");
         try{
             final MemberData data = mapper.treeToValue(receivedMessage.getMember().getClientData(), MemberData.class);
             boolean belongsToCurrUser = receivedMessage.getClientID().equals(scaledrone.getClientID());
@@ -86,6 +87,7 @@ public class MainActivity extends AppCompatActivity implements RoomListener {
                     messageView.setSelection(messageView.getCount() - 1);
                 }
             });
+            System.out.println("Message done");
         } catch (JsonProcessingException e){
             e.printStackTrace();
         }

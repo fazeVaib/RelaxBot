@@ -29,11 +29,12 @@
             android:id="@+id/editText"
             android:layout_weight="2"
             android:ems="10"
-            android:inputType="text"
             android:hint="@string/type_your_message"
             android:paddingHorizontal="10dp"
             android:text=""
-            android:autofillHints="" />
+            android:autofillHints=""
+            android:inputType="textNoSuggestions"
+            />
 
         <ImageButton
             android:layout_width="wrap_content"
