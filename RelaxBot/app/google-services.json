@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "262618324734",
+    "firebase_url": "https://relaxbot-4c7e8.firebaseio.com",
+    "project_id": "relaxbot-4c7e8",
+    "storage_bucket": "relaxbot-4c7e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:262618324734:android:022993d29b0fd2a0",
+        "android_client_info": {
+          "package_name": "com.darkghost.relaxbot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "262618324734-89n5dubrh10gjfkc69aaotibiqb49erl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.darkghost.relaxbot",
+            "certificate_hash": "171413beb5eccc5a52a7f35a3ad9925853208f6d"
+          }
+        },
+        {
+          "client_id": "262618324734-tod2sqpad8rqn66pjl420qkqngj9i134.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZYDGCaH6Q1PF3HlGAfvX_Oj0mszaqxM0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "262618324734-tod2sqpad8rqn66pjl420qkqngj9i134.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
