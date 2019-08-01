@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,6 +27,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     EditText username, email, password;
     AppCompatButton btn_register;
+    TextView link_login;
 
     FirebaseAuth auth;
     DatabaseReference reference;
@@ -39,6 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         email = findViewById(R.id.email);
         btn_register = findViewById(R.id.btn_register);
+        link_login = findViewById(R.id.link_login);
 
         auth = FirebaseAuth.getInstance();
 
@@ -56,6 +59,17 @@ public class RegisterActivity extends AppCompatActivity {
                 } else {
                     register(txt_username, txt_email, txt_password);
                 }
+            }
+        });
+
+        link_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+                overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+
             }
         });
     }
@@ -83,6 +97,8 @@ public class RegisterActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()){
+                                        Toast.makeText(RegisterActivity.this, "Successfully Registered.",
+                                                Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                         startActivity(intent);
