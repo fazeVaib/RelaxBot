@@ -1,6 +1,7 @@
 package com.darkghost.relaxbot.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.darkghost.relaxbot.MessageActivity;
 import com.darkghost.relaxbot.Model.User;
 import com.darkghost.relaxbot.R;
 
@@ -43,7 +45,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
             Glide.with(mContext).load(user.getImageURL()).into(holder.profile_image);
         }
 
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, MessageActivity.class);
+                intent.putExtra("userid", user.getId());
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override

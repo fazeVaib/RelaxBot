@@ -8,6 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowActionBar">false</item>
         <item name="actionOverflowButtonStyle">@style/MyOverflowButtonStyle</item>
+        <item name="colorControlNormal">#fff</item>
         <item name="windowNoTitle">true</item>
 
     </style>
