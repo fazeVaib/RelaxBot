@@ -12,19 +12,23 @@ A android application that allows you chat with your friends as well as with cus
 
 ## Register & Login Screen
 
-![Register](/images/s2.jpeg) ![Login](/images/s1.jpeg)
+<img src="./images/s2.jpeg" alt="Register" width="300px"/>
+<img src="./images/s1.jpeg" alt="Login" width="300px" hspace="20"/>
 
 ## Home Screen
 
-![home](/images/s3.jpeg)
+<img src="./images/s3.jpeg" alt="Home" width="300px"/>
+
 
 ## Profile Page
 
-![profile](/images/s4.jpeg)
+<img src="./images/s4.jpeg" alt="profile" width="300px"/>
+
 
 ## Chat Screen
 
-![chats](/images/s5.jpeg)
+<img src="./images/s5.jpeg" alt="chats" width="300px"/>
+
 
 ## Work under Progress
 
