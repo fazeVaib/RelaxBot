@@ -12,8 +12,7 @@ A android application that allows you chat with your friends as well as with cus
 
 ## Register & Login Screen
 
-<img src="./images/s2.jpeg" alt="Register" width="300px"/>
-<img src="./images/s1.jpeg" alt="Login" width="300px" />
+<img src="./images/s2.jpeg" alt="Register" width="300px"/> <img src="./images/s1.jpeg" alt="Login" width="300px" />
 
 ## Home Screen
 
