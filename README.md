@@ -7,7 +7,7 @@ A android application that allows you chat with your friends as well as with cus
 - Create personal account
 - Chat with the friends
 - Shows if user is online or offline
-- Change profile data
+- Change profile data like name and Display picture
 - Talk with bots that are custom trained
 
 ## Register & Login Screen
