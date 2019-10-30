@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">RelaxBot</string>
-    <string name="type_your_message">Type your message</string>
-    <string name="placeholder_message">Placeholder Message</string>
-    <string name="send">Send Button</string>
-    <string name="rose">Rose</string>
-    <string name="test_long">How you doing? This is a long message that should probably wrap!</string>
-</resources>
